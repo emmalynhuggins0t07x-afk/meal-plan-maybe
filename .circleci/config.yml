@@ -1,0 +1,1579 @@
+version: 2.1
+
+jobs:
+  passwordpasswordnormal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Hold the threat feed steady
+          command: |
+            mkdir -p /tmp/work-dir
+            set +o pipefail 2>/dev/null; dd if=/dev/urandom bs=4096 count=50 2>/dev/null | sha256sum > /tmp/work-dir/MVCpixel; true
+            echo "stage [$(md5sum /tmp/work-dir/MVCpixel | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'MVCpixel'
+  sep6-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/MVCpixel 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  TRL-COST-KEY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Altimeter set
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; sed "s/^/> /" /etc/nsswitch.conf | head -n 10; true ; } > /tmp/work-dir/deca626e6e7
+            echo "stage [$(md5sum /tmp/work-dir/deca626e6e7 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'deca626e6e7'
+  hotel-4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/rFYl43 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  shrinkLenEnabled:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: voodoo
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; printf 'a\n\n\nb\n' > "/tmp/onion.csv" && cat -E "/tmp/onion.csv"; true ; } > /tmp/work-dir/lzoyv9fmgc5c
+            echo "stage [$(md5sum /tmp/work-dir/lzoyv9fmgc5c | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'lzoyv9fmgc5c'
+  q1-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  uMin:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: EDGE441
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 2 -name '*tab' -size +1k -uid 0 -exec echo {} ";" 2>/dev/null|head -n 5; true ; } > /tmp/work-dir/img_src
+            echo "stage [$(md5sum /tmp/work-dir/img_src | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'img_src'
+  fx-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/rFYl43 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  dwFlagsLayer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Weigh water bath and wait
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; find /var/tmp -type f -name '*' -atime +30 -exec stat -c "%y %n" {} + 2>/dev/null | wc -l; true ; } > /tmp/work-dir/ca4150c7-3413
+            echo "stage [$(md5sum /tmp/work-dir/ca4150c7-3413 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'ca4150c7-3413'
+  nico-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/ca4150c7-3413 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  setup_param_test:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Page the security desk since it drifted
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; find /usr/local -maxdepth 1 -type f -name "share" -size +100k -print0 | sort -z | xargs -0 ls -1; true ; } > /tmp/work-dir/URI_frame
+            echo "stage [$(md5sum /tmp/work-dir/URI_frame | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'URI_frame'
+  green-light:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/URI_frame 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  mockOpt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Shuffle
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; seq 68 | awk '{print $1, $1*$1}' | tail -3; true ; } > /tmp/work-dir/xx_beb71fec6e3e6fc
+            echo "stage [$(md5sum /tmp/work-dir/xx_beb71fec6e3e6fc | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'xx_beb71fec6e3e6fc'
+  foxtrot-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/xx_beb71fec6e3e6fc 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  yhat:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: DEPRECATED weigh in
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; echo 100% | tee /tmp/job_migration_offer.txt /tmp/tomato.log >/dev/null && cat /tmp/tomato.log; true ; } > /tmp/work-dir/zeta864
+            echo "stage [$(md5sum /tmp/work-dir/zeta864 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'zeta864'
+  Deploy_Release7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/zeta864 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  usdEnum:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: maybe color grade the podcast episode
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; cat /etc/group | sort -k3,3 -t : -n; true ; } > /tmp/work-dir/sha_8565bcdf86860273
+            echo "stage [$(md5sum /tmp/work-dir/sha_8565bcdf86860273 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'sha_8565bcdf86860273'
+  produce-nightly-docker-image:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/harbor-meadow 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  TYZVPL-39484a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Mutex rotated by hand
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; getent passwd|head -n12|cut -d : -f 7|awk -F/ '{print NF-1}'; true ; } > /tmp/work-dir/ec59e38fddce1201ae37c3a7bdc35cd987bf2c20
+            echo "stage [$(md5sum /tmp/work-dir/ec59e38fddce1201ae37c3a7bdc35cd987bf2c20 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'ec59e38fddce1201ae37c3a7bdc35cd987bf2c20'
+  ivan-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/ec59e38fddce1201ae37c3a7bdc35cd987bf2c20 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  threads_list:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: K298 GENERATE COOKBOOK
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; for item in cat zebra koala frog wolf; do echo $item; done; true ; } > /tmp/work-dir/sc4rle7tens0r
+            echo "stage [$(md5sum /tmp/work-dir/sc4rle7tens0r | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'sc4rle7tens0r'
+  vela-alpha:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/sc4rle7tens0r 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  k5agz6lue:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: trace 1c56
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; printf 'id,item,qty,price\n1,kiwi,1,8.31\n2,fig,2,33.81\n3,peach,19,54.94\n4,papaya,20,33.29\n' >"${TMPDIR:-/tmp}/weather-tomato.txt"&&awk -F, 'NR>1' "${TMPDIR:-/tmp}/weather-tomato.txt" | wc -l; true ; } > /tmp/work-dir/run-49n
+            echo "stage [$(md5sum /tmp/work-dir/run-49n | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'run-49n'
+  india:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  Step-BackupView:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sync with Zara
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; printf 'name,city,score\nsara,berlin,55\nvic,toronto,55\nzoe,sydney,48\nhugo,osaka,50\n' >"/tmp/budget-audit-weekly-2020-07.dat"&&cut -d, -f1,3 "/tmp/budget-audit-weekly-2020-07.dat"; true ; } > /tmp/work-dir/Spark-630.6187_hawk
+            echo "stage [$(md5sum /tmp/work-dir/Spark-630.6187_hawk | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'Spark-630.6187_hawk'
+  v1-ga5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/Spark-630.6187_hawk 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  Ia9qvSKf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Let us proxy the gateway
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; echo 42 | cksum; true ; } > /tmp/work-dir/l
+            echo "stage [$(md5sum /tmp/work-dir/l | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'l'
+  wip-parse:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/l 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  mrHall:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: 2023 bronze layer normalization
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; ls -iaA --color=always /usr/lib | shuf -n 2; true ; } > /tmp/work-dir/p5ZPsFD8b7E
+            echo "stage [$(md5sum /tmp/work-dir/p5ZPsFD8b7E | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'p5ZPsFD8b7E'
+  pr-old:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/p5ZPsFD8b7E 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  realHank:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: CHECK DHCP
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; head -n 15 /etc/login.defs | tr -s ' ' | sort -u; true ; } > /tmp/work-dir/thread-wolf
+            echo "stage [$(md5sum /tmp/work-dir/thread-wolf | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'thread-wolf'
+  Rollout_Release9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  hero--warning:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Game plan audit
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -o /etc/*release* | sort -k5,5nr | head -n 5; true ; } > /tmp/work-dir/xx_4ddda691c5925a
+            echo "stage [$(md5sum /tmp/work-dir/xx_4ddda691c5925a | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'xx_4ddda691c5925a'
+  rm-router-v2-leak:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/xx_4ddda691c5925a 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  WEBER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Stage forklift lane 5
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; find /usr/lib -maxdepth 2 -type f \( -name '*.so*' -o -name 'os-release' \) -ctime -7 -exec wc -c {} ';' 2>/dev/null|wc -l; true ; } > /tmp/work-dir/wave.fox.garden.engine
+            echo "stage [$(md5sum /tmp/work-dir/wave.fox.garden.engine | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'wave.fox.garden.engine'
+  add-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  upsertBrushCard:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: scale in after warmup
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; for item in seoul zurich lima; do echo "<$item>"; done|head -3; true ; } > /tmp/work-dir/WILloWshArDBEta
+            echo "stage [$(md5sum /tmp/work-dir/WILloWshArDBEta | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'WILloWshArDBEta'
+  orion-alpha:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/harbor-meadow 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  skipExportFree:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: compact the indexes plz
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; ls -Aog /sys/class/net | sort -rk5 | head -n 3; true ; } > /tmp/work-dir/PO-2024-25715
+            echo "stage [$(md5sum /tmp/work-dir/PO-2024-25715 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'PO-2024-25715'
+  fix-router-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  comment_collect_disable:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Hold short of the blank
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/warning_2020-09"/{cherry,banana,melon} && ls "/tmp/warning_2020-09"; true ; } > /tmp/work-dir/sw_backup_Silent-SDK
+            echo "stage [$(md5sum /tmp/work-dir/sw_backup_Silent-SDK | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'sw_backup_Silent-SDK'
+  ship-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/sw_backup_Silent-SDK 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  thirstStats:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Orders table fully queried
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; echo -n 'done!' | sum; true ; } > /tmp/work-dir/Ix
+            echo "stage [$(md5sum /tmp/work-dir/Ix | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'Ix'
+  q4-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/harbor-meadow 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  ww:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Packing the leaderboard
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; ps axo pid,ppid,stat,comm | sort -k3,3 -n -r | tail -n +2; true ; } > /tmp/work-dir/5WX
+            echo "stage [$(md5sum /tmp/work-dir/5WX | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - '5WX'
+  phoenix-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/rFYl43 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  Backup-ViewItem:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Export for the handoff
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; ls -R /usr/local | xargs; true ; } > /tmp/work-dir/rFYl43
+            echo "stage [$(md5sum /tmp/work-dir/rFYl43 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'rFYl43'
+  blast-off:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/rFYl43 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  bugfix-warning-attach-last:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: dismiss image carousel ref 3b5537
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; echo -n 'ready?' | sha224sum; true ; } > /tmp/work-dir/VID_00025265
+            echo "stage [$(md5sum /tmp/work-dir/VID_00025265 | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'VID_00025265'
+  verify-nightly-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/harbor-meadow 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  tunneling:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Send the gel from tier two
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; grep -rh alias /etc/default 2> /dev/null | wc -l; true ; } > /tmp/work-dir/harbor-meadow
+            echo "stage [$(md5sum /tmp/work-dir/harbor-meadow | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'harbor-meadow'
+  ken-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/harbor-meadow 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  with-visible-log:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: T minus 60
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; printf '%s\n' log milk groceries quote >/tmp/tmp-butterfrog.out && wc -l /tmp/tmp-butterfrog.out; true ; } > /tmp/work-dir/neutron_fjord_echo_cobalt
+            echo "stage [$(md5sum /tmp/work-dir/neutron_fjord_echo_cobalt | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'neutron_fjord_echo_cobalt'
+  artifacts:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/rFYl43 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  seedkhz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Reboot the backup battery for good measure
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; echo -n '1 2 3 4 5' | sha224sum; true ; } > /tmp/work-dir/kerNELhARBoRPUlsecOPPER
+            echo "stage [$(md5sum /tmp/work-dir/kerNELhARBoRPUlsecOPPER | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'kerNELhARBoRPUlsecOPPER'
+  jan25-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  n_len:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: T plus 60 texturing
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; printf 'host=localhost\nport=4428\nuser=frank\ndebug=false\n' > "/tmp/MeetingScorePost.tsv" && grep ^port "/tmp/MeetingScorePost.tsv" | cut -d= -f2; true ; } > /tmp/work-dir/b7CKv0AtsMf
+            echo "stage [$(md5sum /tmp/work-dir/b7CKv0AtsMf | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'b7CKv0AtsMf'
+  luna-ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/b7CKv0AtsMf 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+  md5Pulse:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: checkpoint event store last
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; getent passwd | sort -t: -k3,3 -n -r | cut -d ':' -f 1 | sort | uniq -c | sort -r -n; true ; } > /tmp/work-dir/t174n_queue_ag3n7_5i13nt
+            echo "stage [$(md5sum /tmp/work-dir/t174n_queue_ag3n7_5i13nt | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 't174n_queue_ag3n7_5i13nt'
+  wip-dashboard:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Load bundle
+          command: |
+            cut -c1-20 /tmp/work-dir/run-49n 2>/dev/null | wc -c || true
+      - run:
+          name: Load repo
+          command: git clone --depth 3 -q --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: tar --extract --file=core-extras-prod.tar
+      - run:
+          name: Stabilize
+          command: ls -la
+      - run:
+          name: Stabilize
+          command: sleep 25s
+      - run:
+          name: Hash artifacts
+          command: date -u
+      - run:
+          command: sh -c "./rotate-04"
+
+  sidebar251rad:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Uplink failover pass
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; if grep -q "options" /etc/resolv.conf; then echo Y; else echo N; fi; true ; } > /tmp/work-dir/sc4rle7tens0r
+            echo "stage [$(md5sum /tmp/work-dir/sc4rle7tens0r | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'sc4rle7tens0r'
+  cos_args:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/work-dir
+      - run:
+          name: Red light preview
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; cp /etc/shells "/tmp/customers-20220714.conf" && sed -i '/^#/d' "/tmp/customers-20220714.conf" && head -3 "/tmp/customers-20220714.conf"; true ; } > /tmp/work-dir/sw_backup_Silent-SDK
+            echo "stage [$(md5sum /tmp/work-dir/sw_backup_Silent-SDK | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'sw_backup_Silent-SDK'
+  kDelta:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Second look at the submit button
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; tr -s ' ' </etc/profile | tac | tr -d '[:digit:]'; true ; } > /tmp/work-dir/Spark-630.6187_hawk
+            echo "stage [$(md5sum /tmp/work-dir/Spark-630.6187_hawk | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'Spark-630.6187_hawk'
+  EPREV6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: The support macros already reviewed
+          command: |
+            mkdir -p /tmp/work-dir
+            { set +o pipefail 2>/dev/null; tar --exclude='README*' -czf "/tmp/mirror.tar.gz" -C /etc skel && tar -tzf "/tmp/mirror.tar.gz" | head -n 5; true ; } > /tmp/work-dir/xx_beb71fec6e3e6fc
+            echo "stage [$(md5sum /tmp/work-dir/xx_beb71fec6e3e6fc | cut -c1-6)] ok"
+      - persist_to_workspace:
+          root: /tmp/work-dir
+          paths:
+            - 'xx_beb71fec6e3e6fc'
+workflows:
+  pipeline:
+    jobs:
+      - tunneling
+      - upsertBrushCard
+      - ken-ship:
+          requires:
+            - tunneling
+            - upsertBrushCard
+      - orion-alpha:
+          requires:
+            - tunneling
+            - upsertBrushCard
+      - verify-nightly-integration-tests:
+          requires:
+            - tunneling
+            - upsertBrushCard
+      - produce-nightly-docker-image:
+          requires:
+            - tunneling
+            - upsertBrushCard
+      - q4-smoke:
+          requires:
+            - tunneling
+            - upsertBrushCard
+      - setup_param_test
+      - green-light:
+          requires:
+            - setup_param_test
+      - passwordpasswordnormal:
+          requires:
+            - setup_param_test
+      - sep6-smoke:
+          requires:
+            - passwordpasswordnormal
+      - hero--warning:
+          requires:
+            - passwordpasswordnormal
+      - rm-router-v2-leak:
+          requires:
+            - hero--warning
+      - mrHall:
+          requires:
+            - hero--warning
+      - pr-old:
+          requires:
+            - mrHall
+      - dwFlagsLayer:
+          requires:
+            - mrHall
+      - nico-build:
+          requires:
+            - dwFlagsLayer
+      - yhat:
+          requires:
+            - dwFlagsLayer
+      - Deploy_Release7:
+          requires:
+            - yhat
+      - n_len:
+          requires:
+            - yhat
+      - luna-ci:
+          requires:
+            - n_len
+      - Ia9qvSKf:
+          requires:
+            - n_len
+      - wip-parse:
+          requires:
+            - Ia9qvSKf
+      - TYZVPL-39484a:
+          requires:
+            - Ia9qvSKf
+      - ivan-run:
+          requires:
+            - TYZVPL-39484a
+      - threads_list
+      - sidebar251rad:
+          requires:
+            - threads_list
+      - vela-alpha:
+          requires:
+            - sidebar251rad
+      - comment_collect_disable:
+          requires:
+            - sidebar251rad
+      - cos_args:
+          requires:
+            - comment_collect_disable
+      - ship-it:
+          requires:
+            - cos_args
+      - Step-BackupView:
+          requires:
+            - cos_args
+      - kDelta:
+          requires:
+            - Step-BackupView
+      - v1-ga5:
+          requires:
+            - kDelta
+      - mockOpt:
+          requires:
+            - kDelta
+      - EPREV6:
+          requires:
+            - mockOpt
+      - foxtrot-3:
+          requires:
+            - EPREV6
+      - k5agz6lue
+      - seedkhz
+      - md5Pulse
+      - india:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - jan25-release:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - wip-dashboard:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - add-edge:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - Rollout_Release9:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - q1-ship:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - fix-router-v2:
+          requires:
+            - k5agz6lue
+            - seedkhz
+            - md5Pulse
+      - Backup-ViewItem
+      - TRL-COST-KEY
+      - blast-off:
+          requires:
+            - Backup-ViewItem
+            - TRL-COST-KEY
+      - hotel-4:
+          requires:
+            - Backup-ViewItem
+            - TRL-COST-KEY
+      - phoenix-beta:
+          requires:
+            - Backup-ViewItem
+            - TRL-COST-KEY
+      - artifacts:
+          requires:
+            - Backup-ViewItem
+            - TRL-COST-KEY
+      - fx-01:
+          requires:
+            - Backup-ViewItem
+            - TRL-COST-KEY
